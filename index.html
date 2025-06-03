@@ -144,11 +144,11 @@
         <h3>Lesson 8: Function Return</h3>
         <p><strong>Concept:</strong>Functions returning values to be used elsewhere.</p>
 
-        <button onclick="runLessson8()">Calculate and Display Result</button>
+        <button onclick="lesson8()">Calculate and Display Result</button>
         <div class="output" id="addition8">Result will show here.</div>
 
         <script>
-            function runLesson8() {
+            function lesson8() {
                 document.getElementById("addition8").innerHTML= "10 + 7 =" + addNumbersReturn(10,7);
             }
 
@@ -157,6 +157,100 @@
             }
         </script>
     </div>
+
+    <!--lesson 9: Variable Scope-->
+
+    <div class="lesson">
+        <h2>lesson 9: Variable Scopes</h2>
+        <p><strong>Concept:</strong> Understanding where variables can be used.</p>
+
+        <button onclick="demonstrateLocalScope()">Demonstrate when variables can be used</button>
+        <button onclick="demonstrateScope()">Demonstrate when variables can be used</button>
+        <div class="output" id="scopeOutput">Click button to see variable scope in action</div>
+
+        <script>
+            var globalVariable = "I'm a global variable";
+
+            function demonstrateScope() {
+                var localVariable = "I'm a local variable";
+                document.getElementById("scopeOutput").innerHTML = "Global:" + globalVariable +"<br>" +
+                "Local:" + localVariable + "<br>" +
+                "local variables only exist inside their function!";
+            }
+
+             function demonstrateLocalScope() {
+                 document.getElementById("scopeOutput").innerHTML = localVariable;
+            }
+        
+        </script>
+    </div>
+
+    <!--Lesson 10: Login Form Mini Project-->
+    <div class="lesson">
+        <h2>Lesson 10: Mini Project - Login Form Part 1</h2>
+        <p><strong>Concept:</strong> Getting user input from form elements</p>
+
+        <form>
+            <label for="username10">Username:</label>
+            <input type="text" id="username10"/><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password10"/><br><br>
+
+            <button type="button" onclick="verify10()">Get Back Values </button>
+
+            <div class="output" id="message10">Enter username and password</div>
+        </form>
+
+        <script>
+            function verify10() {
+                const username = document.getElementById("username10").value;
+                const password = document.getElementById("password10").value;
+
+                 document.getElementById("message10").innerHTML = "Username entered: " + username + "<br>Password entered: " + password;
+            }
+
+        </script>  
+    </div>
+
+    <!-- Lesson 11 -->
+    <div class="lesson">
+        <h2>Lesson 11: Mini Project - Login Form Part 2</h2>
+        <p><strong>Concept:</strong> Complete login verification with functions and conditionals</p>
+        <p><em>Try username: Mchunu, password: ICTP</em></p>
+
+        <form>
+            <label for="usernameInput11">Username:</label>
+            <input type="text" id="usernameInput11"/> <br><br>
+
+            <label for="passwordInput11">Password:</label>
+            <input type="password" id="passwordInput11"/> <br><br>
+            
+            <button type="button" onclick="verifyUser11()">Login</button>
+        </form>
+
+        <div class="output" id="message11">Enter credentials and click Login</div>
+
+        <script>
+            function verifyUser11() {
+                var username = document.getElementById("usernameInput11").value;
+                var password = document.getElementById("passwordInput11").value;
+                checkUserCreds(username, password);
+            }
+
+            function checkUserCreds(username, password) {
+                var adminUsername = "Mchunu";
+                var adminPassword = "ICTP";
+
+                if (username == adminUsername && password == adminPassword) {
+                    document.getElementById("message11").innerHTML = "Correct. Logging you in...";
+                } else {
+                    document.getElementById("message11").innerHTML = "Username or password is incorrect";
+                }
+            }
+        </script>
+    </div>
+
 
 </body>
 </html>
